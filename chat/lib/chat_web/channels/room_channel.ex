@@ -19,7 +19,14 @@ defmodule ChatWeb.RoomChannel do
   # It is also common to receive messages from the client and
   # broadcast to everyone in the current topic (room:lobby).
   def handle_in("shout", payload, socket) do
-    Chat.Message.changeset(%Chat.Message{}, payload) |> Chat.Repo.insert  
+    Chat.Message.changeset(%Chat.Message{}, payload) |> Chat.Repo.insert
+    
+    body = "{\"key\":\"Hello, how are you\"}"
+    header = []
+    HTTPoison.start   
+    response = HTTPoison.post!("http://localhost:5002/chatbot", "{\"key\": \"Hello, how are you?\"}", [{"Content-Type", "application/json"}]).body
+    IO.binwrite response
+
     broadcast socket, "shout", payload
     {:noreply, socket}
   end
