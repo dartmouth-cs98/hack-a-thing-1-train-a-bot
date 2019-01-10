@@ -1,0 +1,5 @@
+cd chat
+mix phx.server&
+cd ../server
+source venv/bin/activate
+python server.py
