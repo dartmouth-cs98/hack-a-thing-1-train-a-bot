@@ -19,10 +19,10 @@ class ChatBot(Resource):
         return {'hello': '1'} # Fetches first column that is Employee ID
 
     def post(self):
-        print(request.form)
         args = parser.parse_args()
+        print(args)
         response = chatbot.get_response(args["key"]);
-        return {'response': "{}".format(response)};
+        return {'name': 'Robo the Robot', 'message': "{}".format(response)};
         
 
 api.add_resource(ChatBot, '/chatbot') # Route_1

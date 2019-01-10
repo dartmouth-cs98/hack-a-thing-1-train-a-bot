@@ -21,13 +21,25 @@ defmodule ChatWeb.RoomChannel do
   def handle_in("shout", payload, socket) do
     Chat.Message.changeset(%Chat.Message{}, payload) |> Chat.Repo.insert
     
-    body = "{\"key\":\"Hello, how are you\"}"
-    header = []
-    HTTPoison.start   
-    response = HTTPoison.post!("http://localhost:5002/chatbot", "{\"key\": \"Hello, how are you?\"}", [{"Content-Type", "application/json"}]).body
-    IO.binwrite response
+    # Get message from sender
+    message = payload["message"]
 
+    # Build request to send message to Chatbot AI
+    body = "{\"key\":\"#{message}\"}"
+    header = [{"Content-Type", "application/json"}]
+
+    HTTPoison.start   
+    response = HTTPoison.post!("http://localhost:5002/chatbot", body, header).body
+    robotResponse = Poison.decode!(~s(#{response}));
+
+    # Broadcast original message
     broadcast socket, "shout", payload
+
+    # Broadcast chatbot response message
+    Chat.Message.changeset(%Chat.Message{}, robotResponse) |> Chat.Repo.insert
+    broadcast socket, "shout", robotResponse
+    
+
     {:noreply, socket}
   end
 
