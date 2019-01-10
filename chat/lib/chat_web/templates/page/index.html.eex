@@ -1,15 +1,17 @@
 <!-- The list of messages will appear here: -->
 
-<div id="message_box">
+<div id="chat_area">
+  <div id="message_box">
 
-<ul id='msg-list' style='list-style: none; min-height:200px; padding: 10px;'></ul>
+  <ul id='msg-list' style='list-style: none; min-height:200px; padding: 10px;'></ul>
 
-<div class="row">
-  <div class="col-xs-3" id="user">
-    <input type="text" id="name" class="form-control" placeholder="Username" autofocus>
+  <div class="row">
+    <%# <div class="col-xs-3" id="user">
+      <input type="text" id="name" class="form-control" placeholder="Username" autofocus>
+    </div> %>
+    <div class="col-xs-9">
+      <input type="text" id="msg" class="form-control" placeholder="Enter message">
+    </div>
   </div>
-  <div class="col-xs-9">
-    <input type="text" id="msg" class="form-control" placeholder="Enter message">
   </div>
-</div>
 </div>

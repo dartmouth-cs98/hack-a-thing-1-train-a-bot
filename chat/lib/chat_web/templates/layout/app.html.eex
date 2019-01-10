@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Train-a-bot</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
   </head>
   <body>
     <header>
-      <div class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="http://cs98.me/">cs98</a></li>
-          </ul>
-        </nav>
-        <a href="http://cs98.me/"" class="phx-logo">
-          <img height="100px" src="<%= Routes.static_path(@conn, "/images/nanobot.svg") %>" alt="nanobot"/>
-        </a>
-        <span id="train">Train-a-bot</span>
+    <div id="menuheader">
+          <a href="http://cs98.me/">
+            <img height="60px" src="<%= Routes.static_path(@conn, "/images/nanobot.svg") %>" alt="nanobot"/>
+          </a>
+
+          <span id="train">Train-a-Bot</span>
+
+          <nav role="navigation">
+            <ul>
+              <li><a href="http://cs98.me/">cs98</a></li>
+            </ul>
+          </nav>
       </div>
     </header>
     <main role="main" class="container">

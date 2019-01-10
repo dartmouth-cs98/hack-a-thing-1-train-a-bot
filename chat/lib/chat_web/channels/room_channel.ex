@@ -21,6 +21,9 @@ defmodule ChatWeb.RoomChannel do
   def handle_in("shout", payload, socket) do
     Chat.Message.changeset(%Chat.Message{}, payload) |> Chat.Repo.insert
     
+    # Broadcast original message
+    broadcast socket, "shout", payload
+
     # Get message from sender
     message = payload["message"]
 
@@ -31,9 +34,6 @@ defmodule ChatWeb.RoomChannel do
     HTTPoison.start   
     response = HTTPoison.post!("http://localhost:5002/chatbot", body, header).body
     robotResponse = Poison.decode!(~s(#{response}));
-
-    # Broadcast original message
-    broadcast socket, "shout", payload
 
     # Broadcast chatbot response message
     Chat.Message.changeset(%Chat.Message{}, robotResponse) |> Chat.Repo.insert

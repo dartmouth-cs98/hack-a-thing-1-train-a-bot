@@ -22,8 +22,18 @@ channel.on('shout', function (payload) { // listen to the 'shout' event
   var li = document.createElement("li"); // creaet new list item DOM element
   li.style.display = "block";
   var name = payload.name || 'guest';    // get name from payload or set default
-  li.innerHTML = '<b>' + name + '</b>: ' + payload.message; // set li contents
+  
+  if (name === "Robo the Robot") {
+    li.innerHTML = '<span class="from-them">'  + payload.message + '</span>';
+  }
+  else {
+    li.innerHTML = '<span class="from-me">' + payload.message + '</span> '; // set li contents
+  }
+
   ul.appendChild(li);                    // append to list
+  
+  var objDiv = document.getElementById("msg-list");
+  objDiv.scrollTop = objDiv.scrollHeight;
 });
 
 channel.join(); // join the channel.
@@ -37,7 +47,7 @@ var msg = document.getElementById('msg');            // message input field
 msg.addEventListener('keypress', function (event) {
   if (event.keyCode == 13 && msg.value.length > 0) { // don't sent empty msg.
     channel.push('shout', { // send the message to the server on "shout" channel
-      name: name.value,     // get value of "name" of person sending the message
+      name: "Anonymous",     // get value of "name" of person sending the message
       message: msg.value    // get message text (value) from msg input field.
     });
     msg.value = '';         // reset the message input field for next message.
