@@ -6,6 +6,11 @@ For this hackathon I decided to tackle functional programming using Elixir. I se
 
 Train-A-Bot is a webapp that allows you to chat with a chatbot. Chats with the bot are saved and used to train it. If I had more time, I'd like to create two modes: asking questions and answering questions. And perhaps add a small button next to the bot's responses so users can flag non-sensical answers. Using all this data, the chatbot could improve drastically.
 
+To run:
+```bash
+    ./run
+```
+
 I followed the following tutorial to build the web app using Elixir and Phoenix: https://github.com/dwyl/phoenix-chat-example
 
 This provided a detailed roadmap to using Phoenix as a web framework and using Elixir to power it. In addition, this tutorial uses PostgreSQL which I have not used before. I found it to be very intuitive and I'm a big fan of the pgAdmin dashboard.
