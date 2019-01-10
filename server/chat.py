@@ -7,9 +7,9 @@ class Chat:
         self.chatbot = ChatBot('chatty')
 
         if trainflag:
-            self.trainer = ChatterBotCorpusTrainer(chatbot.storage)
+            self.trainer = ChatterBotCorpusTrainer(self.chatbot.storage)
             self.trainer.train("chatterbot.corpus.english")
 
     def get_response(self, question):
         response = self.chatbot.get_response(question)
-        print(response)
+        return response

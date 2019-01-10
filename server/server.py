@@ -12,30 +12,20 @@ parser = reqparse.RequestParser()
 parser.add_argument('key')
 chatbot = Chat()
 
-class Employees(Resource):
+class ChatBot(Resource):
     def get(self):
         # conn = db_connect.connect() # connect to database
         # query = conn.execute("select * from employees") # This line performs query and returns json result
         return {'hello': '1'} # Fetches first column that is Employee ID
 
     def post(self):
+        print("here!")
         args = parser.parse_args()
         response = chatbot.get_response(args["key"]);
-        return 1;
-
-class Tracks(Resource):
-    def get(self):
-        return {'hello': '1'} # Fetches first column that is Employee ID
-
-class Employees_Name(Resource):
-    def get(self, employee_id):
-        return {'hello': '1'} # Fetches first column that is Employee ID
+        return {'response': "{}".format(response)};
         
 
-api.add_resource(Employees, '/employees') # Route_1
-api.add_resource(Tracks, '/tracks') # Route_2
-api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
-
+api.add_resource(ChatBot, '/chatbot') # Route_1
 
 if __name__ == '__main__':
      app.run(port='5002')
