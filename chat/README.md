@@ -1,20 +1,15 @@
-# Chat
+# TRAIN A BOT
 
-To start your Phoenix server:
+![screenshot](./screenshot.png)
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+For this hackathon I decided to tackle functional programming using Elixir. I set out thinking of ideas of what I could build in Elixir. Having some experience in web design, I thought it would be interesting to build a web app in Elixir. I've always wanted to write a chatbot, so I decided to write a realtime chat with a chatbot app. 
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Train-A-Bot is a webapp that allows you to chat with a chatbot. Chats with the bot are saved and used to train it.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+I followed the following tutorial to build the web app using Elixir and Phoenix: https://github.com/dwyl/phoenix-chat-example
 
-## Learn more
+This provided a detailed roadmap to using Phoenix as a web framework and using Elixir to power it. In addition, this tutorial uses PostgreSQL which I have not used before. I found it to be very intuitive and I'm a big fan of the pgAdmin dashboard.
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+I modified the program in several ways. I completely redesigned the front-end to have an iOS feel. I used https://codepen.io/samuelkraft/pen/Farhl as a base for the message bubbles, but modified them slightly to fit better with my design. I removed the "name" feature and made it a 1-1 chat with a bot vs. a live chat between many individuals. I also added code here to query the Python microservice that was running my chatbot. After receiving input from the front-end, the Elixir controller would insert the record into the DB (for training at a later time), echo the output to the chat, and would pass the input to the microservice, echoing the result when it is received. 
+
+
