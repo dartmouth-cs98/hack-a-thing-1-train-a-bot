@@ -45,7 +45,7 @@ select {
 #msg-list {
   display: flex;
   flex-flow: column;
-  height: 400px;
+  height: 460px;
   width: 800px;
   border-style:solid;
   border-width:thin;
@@ -59,6 +59,8 @@ select {
 
 #msg {
   margin-left: 10px;
+  border-radius: 50px;
+  width: 800px;
 }
 
 #menulogo {
@@ -207,3 +209,37 @@ header nav a {
 	color: black;
   float: left;
 }
+
+#sendbar {
+  width: 95%;
+  padding-left: 10px;
+  display: flex;
+  flex-flow: row;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+#powered {
+  font-size: 8px;
+  padding-bottom: 25px;
+}
+
+#send_button {
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+#stack_logos {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-top: 15px;
+}
+
+#built_with {
+  display: flex;
+  flex-flow: column;
+  padding-top: 24vh;
+}
+

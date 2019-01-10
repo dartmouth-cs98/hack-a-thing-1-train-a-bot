@@ -1,17 +1,44 @@
 <!-- The list of messages will appear here: -->
 
+
+
 <div id="chat_area">
   <div id="message_box">
+    <ul id='msg-list' style='list-style: none; min-height:200px; padding: 10px;'></ul>
 
-  <ul id='msg-list' style='list-style: none; min-height:200px; padding: 10px;'></ul>
-
-  <div class="row">
-    <%# <div class="col-xs-3" id="user">
-      <input type="text" id="name" class="form-control" placeholder="Username" autofocus>
-    </div> %>
-    <div class="col-xs-9">
-      <input type="text" id="msg" class="form-control" placeholder="Enter message">
+    <div class="row">
+      <%# <div class="col-xs-3" id="user">
+        <input type="text" id="name" class="form-control" placeholder="Username" autofocus>
+      </div> %>
+      <div id="sendbar" class="col-xs-9">
+        <input type="text" id="msg" class="form-control" placeholder="Enter message"> 
+        <img id="send_button" height="30px" src="<%= Routes.static_path(@conn, "/images/send-message.svg") %>" alt="send-message"/>
+      </div>
     </div>
   </div>
+  <div id="built_with">
+    <center><span id="powered">built with ❤️ using:</span></center>
+    <div id="stack_logos">
+      <a href="https://elixir-lang.org/" target="_blank" title="Elixir">
+        <img height="20px" src="<%= Routes.static_path(@conn, "/images/elixir.svg") %>" alt="elixir"/>
+      </a>
+      
+      <a href="https://phoenixframework.org/" target="_blank" title="Phoenix Framework">
+        <img height="20px" src="<%= Routes.static_path(@conn, "/images/phoenix.svg") %>" alt="phoenix"/>
+      </a>
+
+      <a href="https://www.postgresql.org/" target="_blank" title="PostgreSQL">
+        <img height="20px" src="<%= Routes.static_path(@conn, "/images/postgre.svg") %>" alt="postgre"/>
+      </a>
+
+      <a href="https://www.python.org/" target="_blank" title="Python">
+        <img height="20px" src="<%= Routes.static_path(@conn, "/images/python.svg") %>" alt="python"/>
+      </a>
+
+      <a href="http://flask.pocoo.org/" target="_blank" title="Flask">
+        <img height="20px" src="<%= Routes.static_path(@conn, "/images/flask.svg") %>" alt="flask"/>
+      </a>
+      
+    </div>
   </div>
 </div>
